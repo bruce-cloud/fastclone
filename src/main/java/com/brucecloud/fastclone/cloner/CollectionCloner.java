@@ -23,7 +23,7 @@ public class CollectionCloner extends Cloner<Collection> {
     public Collection copy(FastClone fastClone, Collection original) throws Exception {
         Collection copy = original.getClass().newInstance();
         for (Object element : original)
-            copy.add(fastClone.copy(element));
+            copy.add(fastClone.clone(element));
         return copy;
     }
 }

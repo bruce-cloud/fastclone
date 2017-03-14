@@ -65,7 +65,7 @@ public class FastClone {
         config = new DefaultConfig();
     }
 
-    public <T> T copy(T t) throws Exception {
+    public <T> T clone(T t) throws Exception {
         if (t == null) return null;
         if (copyShallow) return t;
         Cloner<T> cloner = getDefaultCloner(t);
@@ -75,7 +75,7 @@ public class FastClone {
         return null;
     }
 
-    public <T> T copyShallow(T t) throws Exception {
+    public <T> T cloneShallow(T t) throws Exception {
         if (t == null) return null;
         copyShallow = true;
         try {

@@ -51,7 +51,7 @@ public class ObjectField extends CachedField {
      */
     @Override
     public void copy(Object original, Object copy) throws Exception {
-        setField(copy, fastClone.copy(getField(original)));
+        setField(copy, fastClone.clone(getField(original)));
     }
 
     /**

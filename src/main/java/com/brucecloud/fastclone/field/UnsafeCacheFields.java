@@ -259,7 +259,7 @@ class UnsafeCacheFields {
          */
         public void copy(Object original, Object copy) throws Exception {
             if (offset != -1) {
-                unsafe().putObject(copy, offset, fastClone.copy(unsafe().getObject(original, offset)));
+                unsafe().putObject(copy, offset, fastClone.clone(unsafe().getObject(original, offset)));
             } else
                 throw new RuntimeException("Unknown offset");
         }
