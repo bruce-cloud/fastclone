@@ -112,12 +112,12 @@ public class Example {
 # 支持clone的属性类型
 <pre>
  数组类型：char[]、byte[]、short[]、int[]、long[]、float[]、double[]、boolean[]、
- String[]、Object[]以及基本类型的包装类数组等。
+          String[]、Object[]以及基本类型的包装类数组等。
  
  集合：Map、List、Set、EnumSet、TreeSet、TreeMap等。
  
  日期：Date、Time、Timestamp、java.sql.Date、Calendar等。
  
  其他：StringBuffer、StringBuilder、BigDecimal、BigInteger、Enum、TimeZone、Locale、
- Charset、URL、Class、Currency、基本类型包装类、自定义对象等。
+      Charset、URL、Class、Currency、基本类型包装类、自定义对象等。
 </pre>
