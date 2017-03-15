@@ -6,8 +6,6 @@ import com.brucecloud.fastclone.config.DefaultConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Collection;
-
 /**
  * 克隆类.
  * created at 2017/3/13 13:00.
@@ -93,9 +91,9 @@ public class FastClone {
         if (t instanceof Enum) {
             return config.getDefaultCloner(this, Enum.class);
         }
-        if (t instanceof Collection) {
-            return config.getDefaultCloner(this, Collection.class);
-        }
+//        if (t instanceof Collection) {
+//            return config.getDefaultCloner(this, Collection.class);
+//        }
         return config.getDefaultCloner(this, t.getClass());
     }
 }

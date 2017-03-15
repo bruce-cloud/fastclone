@@ -16,7 +16,7 @@ import java.util.*;
  *
  * @author yaoxh.
  */
-public class DefaultConfig extends Config{
+public class DefaultConfig extends Config {
 
     public DefaultConfig() {
         init();
@@ -32,9 +32,6 @@ public class DefaultConfig extends Config{
      */
     @Override
     protected void registerDefaultCloner() {
-        registerCloner(BigDecimal.class, new ImmutableCloner<BigDecimal>());
-        registerCloner(Enum.class, new ImmutableCloner<Enum>());
-        registerCloner(Integer.class, new ImmutableCloner<Integer>());
         registerCloner(Collection.class, new CollectionCloner());
         registerCloner(char[].class, new CharArrayCloner());
         registerCloner(byte[].class, new ByteArrayCloner());
@@ -46,31 +43,37 @@ public class DefaultConfig extends Config{
         registerCloner(boolean[].class, new BooleanArrayCloner());
         registerCloner(String[].class, new StringArrayCloner());
         registerCloner(Object[].class, new ObjectArrayCloner());
-        registerCloner(BigInteger.class, new ImmutableCloner<BigInteger>());
-        registerCloner(Class.class, new ImmutableCloner<Class>());
         Cloner dateCloner = new DateCloner();
         registerCloner(Date.class, dateCloner);
         registerCloner(Timestamp.class, dateCloner);
         registerCloner(java.sql.Date.class, dateCloner);
         registerCloner(Time.class, dateCloner);
         registerCloner(EnumSet.class, new EnumSetCloner());
-        registerCloner(Currency.class, new ImmutableCloner<Currency>());
         registerCloner(StringBuffer.class, new StringBufferCloner());
         registerCloner(StringBuilder.class, new StringBuilderCloner());
+        registerCloner(TreeSet.class, new TreeSetCloner());
+        registerCloner(Map.class, new MapCloner());
+        registerCloner(TreeMap.class, new TreeMapCloner());
+        registerCloner(Calendar.class, new CalendarCloner());
+
+        // Immutable
+//        registerCloner(Integer.class, new ImmutableCloner<Integer>());
+        registerCloner(Number.class, new ImmutableCloner<Number>());
+        registerCloner(BigDecimal.class, new ImmutableCloner<BigDecimal>());
+        registerCloner(BigInteger.class, new ImmutableCloner<BigInteger>());
+        registerCloner(Enum.class, new ImmutableCloner<Enum>());
+        registerCloner(TimeZone.class, new ImmutableCloner<TimeZone>());
+        registerCloner(Locale.class, new ImmutableCloner<Locale>());
+        registerCloner(Charset.class, new ImmutableCloner<Charset>());
+        registerCloner(URL.class, new ImmutableCloner<URL>());
+        registerCloner(Class.class, new ImmutableCloner<Class>());
+        registerCloner(Currency.class, new ImmutableCloner<Currency>());
         registerCloner(Collections.EMPTY_LIST.getClass(), new ImmutableCloner());
         registerCloner(Collections.EMPTY_MAP.getClass(), new ImmutableCloner());
         registerCloner(Collections.EMPTY_SET.getClass(), new ImmutableCloner());
         registerCloner(Collections.singletonList(null).getClass(), new ImmutableCloner<List>());
         registerCloner(Collections.singletonMap(null, null).getClass(), new ImmutableCloner<Map>());
         registerCloner(Collections.singleton(null).getClass(), new ImmutableCloner<Set>());
-        registerCloner(TreeSet.class, new TreeSetCloner());
-        registerCloner(Map.class, new MapCloner());
-        registerCloner(TreeMap.class, new TreeMapCloner());
-        registerCloner(TimeZone.class, new ImmutableCloner<TimeZone>());
-        registerCloner(Calendar.class, new CalendarCloner());
-        registerCloner(Locale.class, new ImmutableCloner<Locale>());
-        registerCloner(Charset.class, new ImmutableCloner<Charset>());
-        registerCloner(URL.class, new ImmutableCloner<URL>());
     }
 
     /**

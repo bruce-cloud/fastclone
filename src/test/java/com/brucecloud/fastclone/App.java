@@ -6,6 +6,7 @@ import com.brucecloud.fastclone.bean.User;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,7 +30,7 @@ public class App {
         userList.add(new User());
         biddingWord.setUserList(userList);
 
-        int total = 100000;
+        int total = 1000000;
         System.out.println(total + "条数据");
         FastClone fastClone = new FastClone();
         long startTime = System.currentTimeMillis();
@@ -61,5 +62,8 @@ public class App {
 
         BiddingWord biddingWord1 = fastClone.clone(biddingWord);
         System.out.println(biddingWord1);
+        Class type = Collections.EMPTY_LIST.getClass();
+        Class type1 = userList.getClass();
+        System.out.println(type);
     }
 }
