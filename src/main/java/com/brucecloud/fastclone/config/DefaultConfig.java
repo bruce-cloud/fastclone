@@ -6,8 +6,6 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.*;
 
 /**
@@ -36,9 +34,9 @@ public class DefaultConfig extends Config {
 
         Cloner dateCloner = new DateCloner();
         registerCloner(Date.class, dateCloner);
-        registerCloner(Timestamp.class, dateCloner);
-        registerCloner(java.sql.Date.class, dateCloner);
-        registerCloner(Time.class, dateCloner);
+//        registerCloner(Timestamp.class, dateCloner);
+//        registerCloner(java.sql.Date.class, dateCloner);
+//        registerCloner(Time.class, dateCloner);
         registerCloner(EnumSet.class, new EnumSetCloner());
         registerCloner(StringBuffer.class, new StringBufferCloner());
         registerCloner(StringBuilder.class, new StringBuilderCloner());

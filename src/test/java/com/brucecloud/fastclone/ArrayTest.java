@@ -13,7 +13,7 @@ import java.net.MalformedURLException;
  */
 public class ArrayTest {
     @Test
-    public void immutable() throws Exception {
+    public void array() throws Exception {
         ArrayBean arrayBean = getBean();
         FastClone fastClone = new FastClone();
 
