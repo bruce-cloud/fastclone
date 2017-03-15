@@ -67,19 +67,19 @@ public class Example {
         ExampleBean cloneShallow = fastClone.cloneShallow(exampleBean);
 
         System.out.println("====深克隆====");
-        System.out.println(exampleBean.getId() == clone.getId());
-        System.out.println(exampleBean.getUser() == clone.getUser());
-        System.out.println(exampleBean.getList() == clone.getList());
+        System.out.println("克隆前后id属性内存地址是否相同: " + (exampleBean.getId() == clone.getId()));
+        System.out.println("克隆前后User属性内存地址是否相同: " + (exampleBean.getUser() == clone.getUser()));
+        System.out.println("克隆前后List属性内存地址是否相同: " + (exampleBean.getList() == clone.getList()));
 
         System.out.println();
 
         System.out.println("====浅克隆====");
-        System.out.println(exampleBean.getId() == cloneShallow.getId());
-        System.out.println(exampleBean.getUser() == cloneShallow.getUser());
-        System.out.println(exampleBean.getList() == cloneShallow.getList());
+        System.out.println("克隆前后id属性内存地址是否相同: " + (exampleBean.getId() == cloneShallow.getId()));
+        System.out.println("克隆前后User属性内存地址是否相同: " + (exampleBean.getUser() == cloneShallow.getUser()));
+        System.out.println("克隆前后List属性内存地址是否相同: " + (exampleBean.getList() == cloneShallow.getList()));
     }
 
-    private static ExampleBean getBean(){
+    private static ExampleBean getBean() {
         User user = new User();
         user.setName("admin");
         user.setAge(23);
@@ -96,4 +96,16 @@ public class Example {
         return exampleBean;
     }
 }
+</pre>
+#### 运行结果
+<pre>
+====深克隆====
+克隆前后id属性内存地址是否相同: true
+克隆前后User属性内存地址是否相同: false
+克隆前后List属性内存地址是否相同: false
+
+====浅克隆====
+克隆前后id属性内存地址是否相同: true
+克隆前后User属性内存地址是否相同: true
+克隆前后List属性内存地址是否相同: true
 </pre>
