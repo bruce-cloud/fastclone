@@ -32,14 +32,25 @@ public abstract class Config {
      */
     public Cloner getDefaultCloner(FastClone fastClone, Class type) {
         Cloner cloner = defaultCloner.get(type);
-        if(cloner == null && type.getSuperclass() != null){
-            while (!type.getSuperclass().equals(Object.class)) {
-                type = type.getSuperclass();
+        if(cloner == null){
+            for(Map.Entry<Class<?>, Cloner<?>> entry: defaultCloner.entrySet()){
+                Class key = entry.getKey();
+                if(key.isAssignableFrom(type)){
+                    defaultCloner.putIfAbsent(type, entry.getValue());
+                    cloner = entry.getValue();
+                    break;
+                }
             }
-            cloner = defaultCloner.get(type);
         }
+//        if(cloner == null && type.getSuperclass() != null){
+//            while (!type.getSuperclass().equals(Object.class)) {
+//                type = type.getSuperclass();
+//            }
+//            cloner = defaultCloner.get(type);
+//        }
         if (cloner == null) {
             cloner = new FieldCloner(fastClone, type);
+            defaultCloner.putIfAbsent(type, cloner);
         }
         return cloner;
     }

@@ -33,16 +33,7 @@ public class DefaultConfig extends Config {
     @Override
     protected void registerDefaultCloner() {
         registerCloner(Collection.class, new CollectionCloner());
-        registerCloner(char[].class, new CharArrayCloner());
-        registerCloner(byte[].class, new ByteArrayCloner());
-        registerCloner(short[].class, new ShortArrayCloner());
-        registerCloner(int[].class, new IntArrayCloner());
-        registerCloner(long[].class, new LongArrayCloner());
-        registerCloner(float[].class, new FloatArrayCloner());
-        registerCloner(double[].class, new DoubleArrayCloner());
-        registerCloner(boolean[].class, new BooleanArrayCloner());
-        registerCloner(String[].class, new StringArrayCloner());
-        registerCloner(Object[].class, new ObjectArrayCloner());
+
         Cloner dateCloner = new DateCloner();
         registerCloner(Date.class, dateCloner);
         registerCloner(Timestamp.class, dateCloner);
@@ -74,6 +65,18 @@ public class DefaultConfig extends Config {
         registerCloner(Collections.singletonList(null).getClass(), new ImmutableCloner<List>());
         registerCloner(Collections.singletonMap(null, null).getClass(), new ImmutableCloner<Map>());
         registerCloner(Collections.singleton(null).getClass(), new ImmutableCloner<Set>());
+
+        // Array
+        registerCloner(char[].class, new CharArrayCloner());
+        registerCloner(byte[].class, new ByteArrayCloner());
+        registerCloner(short[].class, new ShortArrayCloner());
+        registerCloner(int[].class, new IntArrayCloner());
+        registerCloner(long[].class, new LongArrayCloner());
+        registerCloner(float[].class, new FloatArrayCloner());
+        registerCloner(double[].class, new DoubleArrayCloner());
+        registerCloner(boolean[].class, new BooleanArrayCloner());
+        registerCloner(String[].class, new StringArrayCloner());
+        registerCloner(Object[].class, new ObjectArrayCloner());
     }
 
     /**
