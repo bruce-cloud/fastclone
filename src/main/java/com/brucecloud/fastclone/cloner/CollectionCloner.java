@@ -21,10 +21,20 @@ public class CollectionCloner extends Cloner<Collection> {
      */
     @SuppressWarnings("unchecked")
     public Collection copy(FastClone fastClone, Collection original) throws Exception {
-        Collection copy = original.getClass().newInstance();
+        Collection copy = createCopy(original);
         for (Object element : original)
             copy.add(fastClone.clone(element));
         return copy;
+    }
+
+    /**
+     * 创建copy集合
+     *
+     * @param original 原始集合
+     * @return 复制后的集合
+     */
+    protected Collection createCopy(Collection original) throws Exception {
+        return original.getClass().newInstance();
     }
 }
 

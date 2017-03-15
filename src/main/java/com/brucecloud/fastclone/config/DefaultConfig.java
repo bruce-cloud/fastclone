@@ -4,11 +4,11 @@ import com.brucecloud.fastclone.cloner.*;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.net.URL;
+import java.nio.charset.Charset;
 import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.Collection;
-import java.util.Date;
-import java.util.EnumSet;
+import java.util.*;
 
 /**
  * 默认配置.
@@ -54,6 +54,23 @@ public class DefaultConfig extends Config{
         registerCloner(java.sql.Date.class, dateCloner);
         registerCloner(Time.class, dateCloner);
         registerCloner(EnumSet.class, new EnumSetCloner());
+        registerCloner(Currency.class, new ImmutableCloner<Currency>());
+        registerCloner(StringBuffer.class, new StringBufferCloner());
+        registerCloner(StringBuilder.class, new StringBuilderCloner());
+        registerCloner(Collections.EMPTY_LIST.getClass(), new ImmutableCloner());
+        registerCloner(Collections.EMPTY_MAP.getClass(), new ImmutableCloner());
+        registerCloner(Collections.EMPTY_SET.getClass(), new ImmutableCloner());
+        registerCloner(Collections.singletonList(null).getClass(), new ImmutableCloner<List>());
+        registerCloner(Collections.singletonMap(null, null).getClass(), new ImmutableCloner<Map>());
+        registerCloner(Collections.singleton(null).getClass(), new ImmutableCloner<Set>());
+        registerCloner(TreeSet.class, new TreeSetCloner());
+        registerCloner(Map.class, new MapCloner());
+        registerCloner(TreeMap.class, new TreeMapCloner());
+        registerCloner(TimeZone.class, new ImmutableCloner<TimeZone>());
+        registerCloner(Calendar.class, new CalendarCloner());
+        registerCloner(Locale.class, new ImmutableCloner<Locale>());
+        registerCloner(Charset.class, new ImmutableCloner<Charset>());
+        registerCloner(URL.class, new ImmutableCloner<URL>());
     }
 
     /**
