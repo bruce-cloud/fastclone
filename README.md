@@ -1,5 +1,5 @@
 # fastclone<br>
-    一款轻量级Java对象高效克隆框架，提供高性能的深克隆(非Object->序列化->Object这种低效率克隆)、浅克隆，支持递归克隆。
+    一款轻量级Java对象高效克隆框架，提供高性能的深克隆(非Object->序列化->Object这种低效率克隆)、浅克隆，支持递归克隆。性能上秒杀Apache Commons BeanUtils和Spring Beans。
 # Demo
  注意: Bean需要提供无参数的构造方法~<br>
  以下代码存在于项目的com.brucecloud.fastclone.example包下~
