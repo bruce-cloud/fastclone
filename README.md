@@ -1,6 +1,9 @@
 # fastclone<br>
-轻量级Java对象高效克隆框架，提供高效的深克隆(非Object->序列化->Object)、浅克隆。<br>
+    一款轻量级Java对象高效克隆框架，提供高性能的深克隆(非Object->序列化->Object这种低效率克隆)、浅克隆，支持递归克隆。性能上秒杀Apache Commons BeanUtils和Spring Beans。
 # Demo
+ 注意:<br>
+ 需要JDK1.8及以上<br>
+ Bean需要提供无参数的构造方法~<br>
  以下代码存在于项目的com.brucecloud.fastclone.example包下~
 #### ExampleBean.java
 <pre>
@@ -108,4 +111,16 @@ public class Example {
 克隆前后id属性内存地址是否相同: true
 克隆前后User属性内存地址是否相同: true
 克隆前后List属性内存地址是否相同: true
+</pre>
+# 支持clone的属性类型
+<pre>
+ 数组类型：char[]、byte[]、short[]、int[]、long[]、float[]、double[]、boolean[]、
+          String[]、Object[]以及基本类型的包装类数组等。
+ 
+ 集合：Map、List、Set、EnumSet、TreeSet、TreeMap等。
+ 
+ 日期：Date、Time、Timestamp、java.sql.Date、Calendar等。
+ 
+ 其他：StringBuffer、StringBuilder、BigDecimal、BigInteger、Enum、TimeZone、Locale、
+      Charset、URL、Class、Currency、基本类型包装类、自定义对象等。
 </pre>
