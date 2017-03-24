@@ -31,12 +31,7 @@ public class DefaultConfig extends Config {
     @Override
     protected void registerDefaultCloner() {
         registerCloner(Collection.class, new CollectionCloner());
-
-        Cloner dateCloner = new DateCloner();
-        registerCloner(Date.class, dateCloner);
-//        registerCloner(Timestamp.class, dateCloner);
-//        registerCloner(java.sql.Date.class, dateCloner);
-//        registerCloner(Time.class, dateCloner);
+        registerCloner(Date.class, new DateCloner());
         registerCloner(EnumSet.class, new EnumSetCloner());
         registerCloner(StringBuffer.class, new StringBufferCloner());
         registerCloner(StringBuilder.class, new StringBuilderCloner());
@@ -46,7 +41,6 @@ public class DefaultConfig extends Config {
         registerCloner(Calendar.class, new CalendarCloner());
 
         // Immutable
-//        registerCloner(Integer.class, new ImmutableCloner<Integer>());
         registerCloner(Number.class, new ImmutableCloner<Number>());
         registerCloner(BigDecimal.class, new ImmutableCloner<BigDecimal>());
         registerCloner(BigInteger.class, new ImmutableCloner<BigInteger>());
