@@ -2,11 +2,11 @@
     一款轻量级Java对象高效克隆框架，提供高性能的深克隆(非Object->序列化->Object这种低效率克隆)、浅克隆，支持递归克隆。性能上秒杀Apache Commons BeanUtils和Spring Beans。<br>
 Maven dependency:
 <pre>
-   <dependency>
-     <groupId>com.github.bruce-cloud</groupId>
-     <artifactId>fastclone</artifactId>
-     <version>1.0.RELEASE</version>
-   </dependency>
+   &lt;dependency>
+     &lt;groupId>com.github.bruce-cloud&lt;/groupId>
+     &lt;artifactId>fastclone&lt;/artifactId>
+     &lt;version>1.0.RELEASE&lt;/version>
+   &lt;/dependency>
 </pre>
 # Demo
  注意:<br>
