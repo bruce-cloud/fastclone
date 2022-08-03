@@ -51,7 +51,7 @@ public class FieldCloner<T> extends Cloner<T> {
     @Override
     @SuppressWarnings("unchecked")
     public T copy(FastClone fastClone, T original) throws Exception {
-        T copy = (T) original.getClass().newInstance();
+        T copy = (T) original.getClass().getDeclaredConstructor().newInstance();
         for (CachedField field : fields) {
             field.copy(original, copy);
         }
